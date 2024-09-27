@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .submitResult{
+            display:none;
+        }
+    </style>
+  </head>
+  <body>
+    <button id="showQuiz">click to see quiz</button>
+    <div id="quiz"></div>
+   <!-- <button id ="submitQuiz" style="display:none;">Submit Quiz"  </butto> -->
+
+    <script>
+      (function () {
+        function buildQuiz() {
+          document.getElementById("showQuiz").style.visibility = "hidden";
+          const output = [];
+
+          myQuestions.forEach((currentQuestion, questionNumber) => {
+            const answers = [];
+
+            for (letter in currentQuestion.answers) {
+              answers.push(
+                `<label>
+        <input type="radio" name="question${questionNumber}" value="${letter}">
+        ${letter} :
+        ${currentQuestion.answers[letter]}
+      </label>`
+              );
+            }
+
+            output.push(
+              `<div class="question"> ${currentQuestion.question} </div>
+    <div class="answers"> ${answers.join("")} </div>`
+            );
+          });
+
+          quizContainer.innerHTML = output.join("");
+        }
+
+        var quizContainer = document.getElementById("quiz");
+        var myQuestions = [
+          {
+            question:
+              "Which keyword is used to declare a constant variable in JavaScript?",
+            answers: {
+              a: "let",
+              b: "const",
+              c: "var",
+              d: "fixed",
+            },
+            correctAnswer: "b",
+          },
+          {
+            question: "What will be the output of: console.log(typeof []);",
+            answers: {
+              a: "object",
+              b: "array",
+              c: "string",
+              d: "number",
+            },
+            correctAnswer: "c",
+          },
+          {
+            question:
+              "Which method is used to add an element to the end of an array",
+            answers: {
+              a: "shift()",
+              b: "pop()",
+              c: "push()",
+              d: "unshift()",
+            },
+            correctAnswer: "c",
+          },
+        ];
+        document
+          .getElementById("showQuiz")
+          .addEventListener("click", buildQuiz);
+      })();
+
+      let submit = document.createElement("button");
+      submit.id="submitResult"
+      submit.value = "submit";
+      submit.textContent = "submit"
+      document.body.appendChild(submit);
+
+     
+
+        // submit.onclick = function(){
+        //   let score =0;
+        //   for (let i=0;i< myQuestions.length;i++){
+        //       let question=  myQuestions[i];
+        //       let answer =  document.getElementByid("answers"+i).value;
+        //       if (answer== question.correctAnswer){
+        //           score++;
+        //       }
+        //       }
+        //       alert("your score is  "+score);
+        // }
+    </script>
+  </body>
+</html>
