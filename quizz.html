@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Quiz App</title>
+    <link rel="stylesheet" href="./quizz.css">
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced JavaScript Quiz</h1>
+        
+        <div id="start-screen">
+            <input type="text" id="name-input" placeholder="Enter your name">
+            <button id="random-btn">Random Name</button>
+            <button id="start-btn" class="btn">Start Quiz</button>
+            <button id="view-high-scores-btn" class="btn">View High Scores</button>
+        </div>
+
+        <div id="quiz-screen">
+            <div id="timer">Time: 60</div>
+            <div id="progress">Question 1 of 5</div>
+            <div id="question"></div>
+            <div id="answers"></div>
+            <div id="result"></div>
+            <div id="navigation">
+                <button id="prev-btn" class="btn" style="display: none;">Previous</button>
+                <button id="save-next-btn" class="btn">Save & Next</button>
+            </div>
+        </div>
+
+        <div id="end-screen">
+            <h2>Quiz Completed!</h2>
+            <p id="final-score"></p>
+            <button id="save-score-btn" class="btn">Save Score</button>
+            <button id="restart-btn" class="btn">Restart Quiz</button>
+        </div>
+
+        <div id="high-scores"></div>
+    </div>
+
+    <script src="./quizz.js"> </script>
+</body>
+</html>
